@@ -1,0 +1,39 @@
+if (isIntegrate.toBoolean()) {
+    apply plugin: 'com.android.library'
+} else {
+    apply plugin: 'com.android.application'
+    //引用aspectjx插件
+    apply plugin: 'android-aspectjx'
+}
+
+android {
+    defaultConfig {
+        if(!isIntegrate.toBoolean()){
+            applicationId "com.example.template.situation"
+        }
+
+        versionCode 1
+        versionName "1.0"
+    }
+
+    sourceSets {
+        main {
+            if (isIntegrate.toBoolean()) {
+                //library使用的manifest
+                manifest.srcFile 'src/main/module/AndroidManifest.xml'
+                //集成开发模式下排除performable文件夹中的所有Java文件（作为app单独运行时所需的java代码）
+                java {
+                    exclude 'performable/**'
+                }
+            } else {
+                //app使用的manifest
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation project(':common')
+    implementation project(':base_support')
+}

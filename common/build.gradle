@@ -1,0 +1,12 @@
+apply plugin: 'com.android.library'
+//protobuf根据各个模块需求引用（protobuf相关配置统一在config.gradle中配置）
+apply plugin: 'com.google.protobuf'
+
+android {
+    defaultConfig {
+    }
+}
+
+dependencies {
+    implementation project(':base_support')
+}

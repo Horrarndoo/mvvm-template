@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option java_package = "com.example.template.common.bean";
+
+option java_outer_classname = "ProtoBuf";
+
+message LocationInfoData {
+    double longitude = 1;
+    double latitude = 2;
+    double altitude = 3;
+    int32 accuracy = 4;
+}

@@ -1,0 +1,107 @@
+apply plugin: 'com.android.library'
+
+android {
+    defaultConfig {
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        def IS_SHOW_LOG = "IS_SHOW_LOG"
+        def IS_COLLECT_CRASH_INFO = "IS_COLLECT_CRASH_INFO"
+
+        debug {
+            buildConfigField BOOLEAN, IS_SHOW_LOG, rootProject.ext.isShowLogDebug
+            buildConfigField BOOLEAN, IS_COLLECT_CRASH_INFO, rootProject.ext.isCollectCrashInfo
+        }
+
+        release {
+            buildConfigField BOOLEAN, IS_SHOW_LOG, rootProject.ext.isShowLogRelease
+            buildConfigField BOOLEAN, IS_COLLECT_CRASH_INFO, rootProject.ext.isCollectCrashInfo
+        }
+    }
+}
+
+dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
+
+    api deps.androidx.appcompat
+    api deps.androidx.recyclerview
+    api deps.androidx.design
+    api deps.glide.glide
+
+    //room
+    api deps.room.runtime
+    annotationProcessor deps.room.compiler
+    api deps.room.rxjava2
+    api deps.room.rxjava3
+    api deps.room.guava
+    testImplementation deps.room.testing
+    //paging
+    api deps.paging
+    //分包
+    api deps.androidx.multidex
+    //阿里vLayout
+    api deps.vlayout
+    //下拉刷新
+    api deps.smart_refresh_layout.refresh_header
+    api deps.smart_refresh_layout.refresh_layout
+    //WebView（网页加载）
+    api deps.agent_web.core
+    api deps.agent_web.download
+    //腾讯的键值对存储mmkv
+    api deps.mmkv
+    //屏幕适配AutoSize
+    api deps.autosize
+    //预加载占位控件
+    api deps.broccoli
+    //富文本
+    api deps.richtext
+    //retrofit2
+    api deps.retrofit2.runtime
+    api deps.retrofit2.gson
+    api deps.retrofit2.adapter_rxjava2
+    //ANR异常捕获
+    api deps.anrwatchdog
+    //logger
+    api deps.logger
+    //RecyclerView
+    api deps.base_recycler_view_adapter_helper
+    //fragmentation
+    api deps.fragmentationx
+    //QMUI
+    api deps.qmui.qmui
+    api deps.qmui.arch
+    annotationProcessor deps.qmui.arch_compiler // use annotationProcessor if java
+    //protobuf
+    api deps.protobuf.protobuf_java
+    api deps.protobuf.protoc
+    //permissionx
+    api deps.permissionx
+    //ARouter
+    api deps.arouter.runtime
+    annotationProcessor deps.arouter.compiler
+    //glide
+    api deps.glide.glide
+    annotationProcessor deps.glide.compiler
+    //rxJava
+    api deps.rxjava2
+    api deps.rxandroid
+    api deps.rxbinding
+    api deps.rxpermission
+    api deps.okhttp3
+    //gson
+    api deps.gson
+    //xutil
+    api deps.xutil
+    //leak
+    debugImplementation deps.leakcanary
+    //skin-support（换肤）
+    api deps.skin_support.support           // skin-support
+    api deps.skin_support.support_appcompat // skin-support 基础控件支持
+    api deps.skin_support.support_design //material design 控件支持[可选]
+    api deps.skin_support.support_cardview // CardView 控件支持[可选]
+    api deps.skin_support.support_constraint_layout // ConstraintLayout 控件支持[可选]
+    //aspectjrt
+    api deps.aspectjrt
+}

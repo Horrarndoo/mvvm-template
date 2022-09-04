@@ -1,0 +1,240 @@
+ext.deps = [:]
+def versions = [:]
+versions.android_gradle_plugin = "7.1.3"
+versions.android_maven_gradle_plugin = "2.0"
+versions.gradle_bintray_plugin = "1.8.0"
+versions.protobuf_gradle_plugin = "0.8.18"
+versions.booster = "3.1.0"
+versions.booster_all = "1.1.1"
+versions.support = "28.0.0"
+versions.annotation = "1.2.0"
+versions.androidx = "1.3.1"
+versions.room = "2.3.0"
+versions.paging = "2.1.0"
+versions.dagger = "2.43.2"
+versions.arouter_version = "1.5.2"
+versions.arouter_register = "1.0.2"
+versions.recyclerview = "1.2.1"
+versions.material = "1.4.0"
+versions.junit = "4.12"
+versions.espresso = "3.2.0"
+versions.constraint_layout = "2.1.0"
+versions.glide = "4.11.0"
+versions.rxjava2 = "2.2.20"
+versions.rxandroid = "2.1.1"
+versions.rxbinding = "2.2.0"
+versions.rxpermissions = "0.10.2@aar"
+versions.butterknife = "10.1.0"
+versions.runner = "1.2.0"
+versions.gson = "2.8.5"
+versions.okhttp3 = "3.12.12"
+versions.leakcanary = "2.9.1"
+versions.vlayout = "1.3.0"
+versions.smart_refresh_layout = "1.1.5"
+versions.agent_web = "1.0.0"
+versions.mmkv = "1.2.14"
+versions.autosize = "v1.2.1"
+versions.richtext = "3.0.8"
+versions.broccoli = "1.0.0"
+versions.retrofit2 = "2.9.0"
+versions.anrwatchdog = "1.4.0"
+versions.logger = "2.2.0"
+versions.base_recycler_view_adapter_helper = "3.0.8"
+versions.fragmentationx = "1.0.6"
+versions.img_optimizer = "1.2.0"
+versions.aspectjx_plugin = "2.0.10"
+versions.aspectjrt = "1.9.6"
+versions.qmui = "2.0.0-alpha10"
+versions.protobuf = "3.4.0"
+versions.protoc = "3.1.0"
+versions.permissionx = "1.6.4"
+versions.xutil = "2.0.0"
+versions.skin_support = "4.0.5"
+
+def deps = [:]
+
+def support = [:]
+support.annotations = "com.android.support:support-annotations:$versions.support"
+support.app_compat = "com.android.support:appcompat-v7:$versions.support"
+support.recyclerview = "com.android.support:recyclerview-v7:$versions.support"
+support.cardview = "com.android.support:cardview-v7:$versions.support"
+support.design = "com.android.support:design:$versions.support"
+support.v4 = "com.android.support:support-v4:$versions.support"
+support.core_utils = "com.android.support:support-core-utils:$versions.support"
+deps.support = support
+
+def androidx = [:]
+androidx.annotations = "androidx.annotation:annotation:$versions.annotation"
+androidx.appcompat = "androidx.appcompat:appcompat:$versions.androidx"
+androidx.recyclerview = "androidx.recyclerview:recyclerview:$versions.recyclerview"
+androidx.design = "com.google.android.material:material:$versions.material"
+androidx.multidex = 'androidx.multidex:multidex:2.0.1'
+deps.androidx = androidx
+
+def room = [:]
+room.runtime = "androidx.room:room-runtime:$versions.room"
+room.compiler = "androidx.room:room-compiler:$versions.room"
+room.rxjava2 = "androidx.room:room-rxjava2:$versions.room"
+room.rxjava3 = "androidx.room:room-rxjava3:$versions.room"
+room.guava = "androidx.room:room-guava:$versions.room"
+room.testing = "androidx.room:room-testing:$versions.room"
+deps.room = room
+
+def dagger = [:]
+dagger.runtime = "com.google.dagger:dagger:$versions.dagger"
+dagger.android = "com.google.dagger:dagger-android:$versions.dagger"
+dagger.android_support = "com.google.dagger:dagger-android-support:$versions.dagger"
+dagger.compiler = "com.google.dagger:dagger-compiler:$versions.dagger"
+dagger.android_support_compiler = "com.google.dagger:dagger-android-processor:$versions.dagger"
+deps.dagger = dagger
+
+def arouter = [:]
+arouter.runtime = "com.alibaba:arouter-api:$versions.arouter_version"
+arouter.compiler = "com.alibaba:arouter-compiler:$versions.arouter_version"
+arouter.register = "com.alibaba:arouter-register:$versions.arouter_register"
+deps.arouter = arouter
+
+def booster = [:]
+booster.gradle_plugin = "com.didiglobal.booster:booster-gradle-plugin:$versions.booster"
+booster.task_all = "com.didiglobal.booster:booster-task-all:$versions.booster_all"
+booster.transform_all = "com.didiglobal.booster:booster-transform-all:$versions.booster_all"
+//采用 cwebp 对资源进行压缩
+booster.task_compression_cwebp = "com.didiglobal.booster:booster-task-compression-cwebp:$versions.booster"
+//采用 pngquant 对资源进行压缩
+booster.task_compression_pngquant = "com.didiglobal.booster:booster-task-compression-pngquant:$versions.booster"
+//ap_ 文件压缩
+booster.task_processed_res = "com.didiglobal.booster:booster-task-compression-processed-res:$versions.booster"
+//去冗余资源
+booster.task_resource_deredundancy = "com.didiglobal.booster:booster-task-resource-deredundancy:$versions.booster"
+//检查 SNAPSHOT 版本
+booster.task_check_snapshot = "com.didiglobal.booster:booster-task-check-snapshot:$versions.booster"
+//性能瓶颈检测
+booster.transform_lint = "com.didiglobal.booster:booster-transform-lint:$versions.booster"
+//多线程优化
+booster.transform_thread = "com.didiglobal.booster:booster-transform-thread:$versions.booster"
+//资源索引内联
+booster.transform_r_inline = "com.didiglobal.booster:booster-transform-r-inline:$versions.booster"
+//WebView 预加载
+booster.transform_webview = "com.didiglobal.booster:booster-transform-webview:$versions.booster"
+//SharedPreferences 优化
+booster.transform_shared_preferences = "com.didiglobal.booster:booster-transform-shared-preferences:$versions.booster"
+//检查覆盖安装导致的 Resources 和 Assets 未加载的 Bug
+booster.transform_res_check = "com.didiglobal.booster:booster-transform-res-check:$versions.booster"
+//修复 Toast 在 Android 7.1 上的 Bug
+booster.transform_toast = "com.didiglobal.booster:booster-transform-toast:$versions.booster"
+//处理系统 Crash
+booster.transform_activity_thread = "com.didiglobal.booster:booster-transform-activity-thread:$versions.booster"
+deps.booster = booster
+
+def butterknife = [:]
+butterknife.runtime = "com.jakewharton:butterknife:$versions.butterknife"
+butterknife.compiler = "com.jakewharton:butterknife-compiler:$versions.butterknife"
+deps.butterknife = butterknife
+
+def espresso = [:]
+espresso.core = "androidx.test.espresso:espresso-core:$versions.espresso"
+espresso.contrib = "androidx.test.espresso:espresso-contrib:$versions.espresso"
+espresso.intents = "androidx.test.espresso:espresso-intents:$versions.espresso"
+deps.espresso = espresso
+
+deps.android_gradle_plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
+deps.android_maven_gradle_plugin = "com.github.dcendents:android-maven-gradle-plugin:$versions.android_maven_gradle_plugin"
+deps.gradle_bintray_plugin = "com.jfrog.bintray.gradle:gradle-bintray-plugin:$versions.gradle_bintray_plugin"
+deps.protobuf_gradle_plugin = "com.google.protobuf:protobuf-gradle-plugin:$versions.protobuf_gradle_plugin"
+deps.paging = "androidx.paging:paging-runtime:$versions.paging"
+def glide = [:]
+glide.glide = "com.github.bumptech.glide:glide:$versions.glide"
+glide.compiler = "com.github.bumptech.glide:compiler:$versions.glide"
+deps.glide = glide
+deps.constraint_layout = "androidx.constraint:constraint-layout:$versions.constraint_layout"
+deps.junit = "junit:junit:$versions.junit"
+deps.runner = "androidx.test:runner:$versions.runner"
+deps.rxjava2 = "io.reactivex.rxjava2:rxjava:$versions.rxjava2"
+deps.rxandroid = "io.reactivex.rxjava2:rxandroid:$versions.rxandroid"
+deps.rxbinding = "com.jakewharton.rxbinding2:rxbinding:$versions.rxbinding"
+deps.rxpermission = "com.github.tbruyelle:rxpermissions:$versions.rxpermissions"
+deps.gson = "com.google.code.gson:gson:$versions.gson"
+deps.okhttp3 = "com.squareup.okhttp3:okhttp:$versions.okhttp3"
+deps.leakcanary = "com.squareup.leakcanary:leakcanary-android:$versions.leakcanary"
+
+deps.vlayout = "com.alibaba.android:vlayout:$versions.vlayout"
+
+def smart_refresh_layout = [:]
+smart_refresh_layout.refresh_header = "com.github.xuexiangjys.SmartRefreshLayout:refresh-header:$versions.smart_refresh_layout"
+smart_refresh_layout.refresh_layout = "com.github.xuexiangjys.SmartRefreshLayout:refresh-layout:$versions.smart_refresh_layout"
+deps.smart_refresh_layout = smart_refresh_layout
+
+def agent_web = [:]
+agent_web.core = "com.github.xuexiangjys.AgentWeb:agentweb-core:$versions.agent_web"
+agent_web.download = "com.github.xuexiangjys.AgentWeb:agentweb-download:$versions.agent_web"
+deps.agent_web = agent_web
+
+deps.mmkv = "com.tencent:mmkv:$versions.mmkv"
+deps.autosize = "com.github.JessYanCoding:AndroidAutoSize:$versions.autosize"
+deps.broccoli = "me.samlss:broccoli:$versions.broccoli"
+deps.richtext = "com.zzhoujay.richtext:richtext:$versions.richtext"
+
+def retrofit2 = [:]
+retrofit2.runtime = "com.squareup.retrofit2:retrofit:$versions.retrofit2"
+retrofit2.gson = "com.squareup.retrofit2:converter-gson:$versions.retrofit2"
+retrofit2.adapter_rxjava2 = "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit2"
+deps.retrofit2 = retrofit2
+
+deps.anrwatchdog = "com.github.anrwatchdog:anrwatchdog:$versions.anrwatchdog"
+deps.logger = "com.orhanobut:logger:$versions.logger"
+deps.base_recycler_view_adapter_helper = "com.github.CymChad:BaseRecyclerViewAdapterHelper:$versions.base_recycler_view_adapter_helper"
+deps.fragmentationx = "me.xuexuan:fragmentationx:$versions.fragmentationx"
+deps.img_optimizer = "com.chenenyu:img-optimizer:$versions.img_optimizer"
+deps.aspectjx_plugin = "com.hujiang.aspectjx:gradle-android-plugin-aspectjx:$versions.aspectjx_plugin"
+//deps.aspectjx_plugin = "io.github.wurensen:gradle-android-plugin-aspectjx:$versions.aspectjx_plugin"
+deps.aspectjrt = "org.aspectj:aspectjrt:$versions.aspectjrt"
+
+def qmui = [:]
+qmui.qmui = "com.qmuiteam:qmui:$versions.qmui"
+qmui.arch = "com.qmuiteam:arch:$versions.qmui"
+qmui.arch_compiler = "com.qmuiteam:arch-compiler:$versions.qmui"
+deps.qmui = qmui
+
+def protobuf = [:]
+protobuf.protobuf_java = "com.google.protobuf:protobuf-java:$versions.protobuf"
+protobuf.protoc = "com.google.protobuf:protoc:$versions.protoc"
+deps.protobuf = protobuf
+
+//permissionx
+deps.permissionx = "com.guolindev.permissionx:permissionx:$versions.permissionx"
+//xutil
+deps.xutil = "com.github.xuexiangjys.XUtil:xutil-core:$versions.xutil"
+
+def skin_support = [:]
+skin_support.support = "skin.support:skin-support:$versions.skin_support"
+skin_support.support_appcompat = "skin.support:skin-support-appcompat:$versions.skin_support"
+skin_support.support_design = "skin.support:skin-support-design:$versions.skin_support"
+skin_support.support_cardview = "skin.support:skin-support-cardview:$versions.skin_support"
+skin_support.support_constraint_layout = "skin.support:skin-support-constraint-layout:$versions.skin_support"
+deps.skin_support = skin_support
+
+ext.deps = deps
+
+def build_versions = [:]
+build_versions.min_sdk = 21
+build_versions.target_sdk = 29
+build_versions.complile_sdk = 29
+build_versions.build_tools = "30.0.3"
+ext.build_versions = build_versions
+
+//默认添加代码仓库路径
+static def addRepos(RepositoryHandler handler) {
+    handler.mavenLocal()
+    handler.mavenCentral()
+    handler.google { url 'https://maven.aliyun.com/repository/google' }
+    handler.jcenter { url 'https://maven.aliyun.com/repository/jcenter' }
+    handler.mavenCentral { url 'https://maven.aliyun.com/repository/central' }
+    handler.maven { url "https://jitpack.io" }
+    handler.maven { url 'https://maven.aliyun.com/repository/public' }
+    handler.maven { url "https://repo1.maven.org/maven2/" }
+    handler.maven { url 'https://oss.sonatype.org/content/repositories/public' }
+    //Add the Local repository
+    handler.maven { url 'LocalRepository' }
+}
+
+ext.addRepos = this.&addRepos

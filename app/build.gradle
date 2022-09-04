@@ -1,0 +1,29 @@
+apply plugin: 'com.android.application'
+//protobuf
+apply plugin: 'com.google.protobuf'
+//引用aspectjx插件
+apply plugin: 'android-aspectjx'
+
+android {
+    //版本号
+    def publishVersion = "1.0.0"
+    //提交次数
+    def submitTimes = "1"
+
+    defaultConfig {
+        applicationId "com.example.template"
+        versionCode 1
+        //版本名称根据指定规则生成
+        versionName "V" + publishVersion + "." + new Date().format('yyMMdd') + "." + submitTimes
+    }
+}
+
+dependencies {
+    implementation project(':common')
+    implementation project(':base_support')
+
+    if (isIntegrate.toBoolean()) {
+        implementation project(':situation')
+    }
+}
+
